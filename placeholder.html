@@ -97,13 +97,8 @@
             animation: pulse 2s infinite alternate;
             position: relative;
             overflow: hidden;
-            padding: 15px;
-        }
-
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            font-size: 60px;
+            color: #4a90e2;
         }
 
         @keyframes pulse {
@@ -210,7 +205,7 @@
     <div class="container">
         <div class="content">
             <div class="app-icon">
-                <img id="app-logo" src="icon.png" alt="TrainMapper Logo" onerror="showFallbackIcon()">
+                <img src="icon.png" alt="TrainMapper Logo" style="width: 100%; height: 100%; object-fit: contain;">
             </div>
             
             <h1>TrainMapper</h1>
@@ -245,16 +240,6 @@
     </div>
 
     <script>
-        // Show fallback icon if image fails to load
-        function showFallbackIcon() {
-            const logo = document.getElementById('app-logo');
-            const iconContainer = document.querySelector('.app-icon');
-            logo.style.display = 'none';
-            iconContainer.innerHTML = '🚂';
-            iconContainer.style.fontSize = '60px';
-            iconContainer.style.color = '#4a90e2';
-        }
-
         // Create floating particles
         function createParticles() {
             const particlesContainer = document.querySelector('.particles');
@@ -283,44 +268,26 @@
             button.disabled = true;
             button.style.background = 'linear-gradient(45deg, #ffa726, #ff9800)';
             
-            try {
-                // Submit to Formspree
-                const response = await fetch('https://formspree.io/f/tmnotify@jawz.co.uk', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        _subject: 'New TrainMapper App Launch Notification Request'
-                    })
-                });
-                
-                if (response.ok) {
-                    // Success feedback
-                    button.textContent = 'Thanks for your interest! ✓';
-                    button.style.background = 'linear-gradient(45deg, #4ecdc4, #44a08d)';
-                    form.reset();
-                    
-                    setTimeout(() => {
-                        button.textContent = originalText;
-                        button.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
-                        button.disabled = false;
-                    }, 3000);
-                } else {
-                    throw new Error('Failed to send');
-                }
-            } catch (error) {
-                // Error feedback
-                button.textContent = 'Try again later';
-                button.style.background = 'linear-gradient(45deg, #f44336, #d32f2f)';
+            // Simple mailto fallback - opens their email client
+            const subject = encodeURIComponent('TrainMapper Launch Notification Request');
+            const body = encodeURIComponent(`Please add ${email} to the notification list for TrainMapper launch.`);
+            const mailtoLink = `mailto:tmnotify@jawz.co.uk?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            setTimeout(() => {
+                button.textContent = 'Thanks for your interest! ✓';
+                button.style.background = 'linear-gradient(45deg, #4ecdc4, #44a08d)';
+                form.reset();
                 
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
                     button.disabled = false;
-                }, 2000);
-            }
+                }, 3000);
+            }, 500);
         }
 
         // Initialize particles when page loads
