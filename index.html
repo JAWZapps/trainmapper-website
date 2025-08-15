@@ -245,18 +245,16 @@
         }
 
         .download-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 15px;
+            background: none;
+            border: none;
+            padding: 0;
             text-decoration: none;
-            font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .download-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -596,14 +594,16 @@
     <section class="footer">
         <div class="container">
             <h3>TrainMapper</h3>
-            <!--p>Join thousands of rail enthusiasts and travelers who love exploring the intricate world of Britain's railways and discovering more about their journeys.</p>
+            <!--p>Join thousands of rail enthusiasts and travelers who love exploring the intricate world of Britain's railways and discovering more about their journeys.</p>-->
             
             <div class="download-buttons">
-                <a href="#" class="download-btn">📱 Download for iOS</a>
-                <a href="#" class="download-btn">🤖 Download for Android</a>
-            </div-->
+                <a href="https://apps.apple.com/us/app/trainmapper/id6745478718" class="download-btn">
+                    <img src="AppStore.svg" alt="Download on the App Store" style="height: 60px; width: auto;">
+                </a>
+                <!--a href="#" class="download-btn">🤖 Download for Android</a-->
+            </div>
             <div class="email-form">
-                <p class="coming-soon-text">TrainMapper will be launched on iOS later this month! Be the first to know when we launch!<p></p>If you're interested in an Android version, let us know!</p>
+                <p class="coming-soon-text">TrainMapper is available for iOS right now!<p></p>If you're interested in an Android version, let us know!</p>
                 <form class="form-group" onsubmit="handleSubmit(event)">
                     <input 
                         type="email" 
@@ -811,7 +811,7 @@
             
             // Simple mailto fallback - opens their email client
             const subject = encodeURIComponent('TrainMapper Launch Notification Request');
-            const body = encodeURIComponent(`Please add ${email} to the notification list for TrainMapper launch. I'm interested in the iOS | Android version (delete one as appropriate!).`);
+            const body = encodeURIComponent(`Please add ${email} to the notification list for TrainMapper launch. I'm interested in the Android version!`);
             const mailtoLink = `mailto:notifications@trainmapper.co.uk?subject=${subject}&body=${body}`;
             
             // Open email client
