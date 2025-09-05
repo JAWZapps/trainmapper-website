@@ -581,12 +581,14 @@
                     <div class="click-hint">Click to explore →</div>
                 </div>
                 
-                <!--div class="feature-card" onclick="showFeature('about')">
+                <div class="feature-card" onclick="showFeature('diagrams')">
                     <div class="feature-icon">⚡</div>
-                    <h3>About TrainMapper</h3>
-                    <p>FAQs and in-depth information about the app.</p>
+                    <h3>Loco Diagrams</h3>
+                    <p>Looking to snap that elusive loco-hauled service? Look no further 
+                        - all today's loco services are now available in one handy screen! 
+                    </p>
                     <div class="click-hint">Click to explore →</div>
-                </div-->
+                </div>
             </div>
         </div>
     </section>
@@ -754,43 +756,19 @@
                     { name: "Interactive", description: "Tap on a service to see where it is.", image: "screenshots/movements3.png" }
                 ]
             },
-            about: {
-                title: "About TrainMapper",
-                subtitle: "FAQs, symbology, hints and tips",
+            diagrams: {
+                title: "Loco Diagrams",
+                subtitle: "Quickly find that elusive loco service!",
                 content: `
-                    <h3>About TrainMapper</h3>
-                    <p>All the guff goes here
+                    <h3>Loco Diagrams</h3>
+                    <p>Loco-hauled passenger trains are getting to be
+                        quite a rarity now. Catch them while you can...
                     </p>
-                    
-                    <h2>FAQs</h2>
-                    <ul class="faq">
-                        <li>Eh? The trains aren't moving!</li>
-                        <p>Trains are not currently equipped with GPS and do not broadcast their position. 
-                            Instead, their locations
-                            are reported as they pass trackside sensors, so you'll see trains moving on the map in "jumps" rather than continuously. 
-                            Rest assured, the live picture <i>is</i> continuously being updated and you're seeing the most up-to-date state
-                            of the network!</p>
-                        <li>Real-time impact assessment on connecting services</li>
-                        <li>Recovery progress monitoring</li>
-                        <li>Network-wide disruption visualisation</li>
-                        <li>Historical delay patterns and trends</li>
-                        <li>Passenger impact assessment</li>
-                    </ul>
-
-                    <br/>
-                    <h2>Symbology</h2>
-                    <ul>
-                        <li><img src=""
-                    </ul>
-                    <br/>
-                    <p>blah blah blah</p>
                 `,
                 screenshots: [
-                    { name: "Delay Source", description: "Identify where delays originated and track their root causes through the network.", image: "screenshots/livetrainsmap.png" },
-                    { name: "Journey Analysis", description: "See how delays accumulate throughout a train's entire journey from origin to destination.", image: "screenshots/livetrainsmap.png" },
-                    { name: "Problem Tracking", description: "Drill down into delay progression to understand exactly where and when issues developed.", image: "screenshots/livetrainsmap.png" },
-                    { name: "Network Impact", description: "Visualize how delays spread through the network affecting other trains and services.", image: "screenshots/livetrainsmap.png" },
-                    { name: "Recovery Progress", description: "Monitor how services recover from disruptions with real-time progress updates.", image: "screenshots/livetrainsmap.png" }
+                    { name: "All Loco Diagrams", description: "Find all today's loco movements in one simple screen.", image: "screenshots/locodiagrams.png" },
+                    { name: "Diagram Filters", description: "Only interested in passenger movements? No problem, filter the others out...", image: "screenshots/diagramfilters.png" },
+                    { name: "Problem Tracking", description: "Quickly see if your train is running. Tap on the train to see where it is!", image: "screenshots/passengerdiagrams.png" }
                 ]
             }
         };
